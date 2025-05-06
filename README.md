@@ -1,7 +1,7 @@
 ## 🔄 Quy Trình Làm Việc với GitHub
 
 ### Bước 1: Clone Repository (chỉ thực hiện 1 lần trên máy của bạn)
-- git clone https://github.com/<ten-nguoi-dung-hoac-to-chuc>/<ten-repo>.git
+- git clone https://github.com/RomlaTao/androidstu_androidapp.git
 - cd <ten-repo>
 ### Bước 2: Luôn pull code mới từ github trước khi làm việc:
 - git pull origin main
