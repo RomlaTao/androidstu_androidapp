@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CapNhatThongTin">
+
+    <ImageView
+        android:id="@+id/fullScreenImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/infor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <TextView
+        android:id="@+id/tvCapNhatThongTin"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/oooh_baby"
+        android:text="Cập nhật thông tin"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fullScreenImage" />
+
+    <EditText
+        android:id="@+id/edtHoTenCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="128dp"
+        android:textColor="@color/black"
+        android:background="@drawable/bg_textview_border"
+        android:ems="10"
+        android:fontFamily="@font/oooh_baby"
+        android:inputType="text"
+        android:text="Họ tên"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCapNhatThongTin" />
+
+    <EditText
+        android:id="@+id/edtSoDienThoaiCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="128dp"
+        android:textColor="@color/black"
+        android:background="@drawable/bg_textview_border"
+        android:ems="10"
+        android:fontFamily="@font/oooh_baby"
+        android:hint="Số điện thoại"
+        android:inputType="phone"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtHoTenCapNhat" />
+
+    <EditText
+        android:id="@+id/edtDiaChiCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="128dp"
+        android:background="@drawable/bg_textview_border"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:fontFamily="@font/oooh_baby"
+        android:hint="Địa chỉ"
+        android:inputType="textPostalAddress"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSoDienThoaiCapNhat" />
+
+    <EditText
+        android:id="@+id/edtNgaySinhCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="128dp"
+        android:background="@drawable/bg_textview_border"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:fontFamily="@font/oooh_baby"
+        android:hint="Ngày sinh"
+        android:inputType="date"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDiaChiCapNhat" />
+
+    <Button
+        android:id="@+id/btnLuuThongTin2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_textview_border"
+        android:fontFamily="@font/oooh_baby"
+        android:text="Lưu"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtChieuCaoCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="225dp"
+        android:background="@drawable/bg_textview_border"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:fontFamily="@font/oooh_baby"
+        android:hint="Chiều cao"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChieuCaoCapNhat" />
+
+    <EditText
+        android:id="@+id/edtCanNangCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_textview_border"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:fontFamily="@font/oooh_baby"
+        android:hint="Cân nặng"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCanNangCapNhat" />
+
+    <TextView
+        android:id="@+id/tvChieuCaoCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="225dp"
+        android:fontFamily="@font/oooh_baby"
+        android:text="Chiều cao (cm)"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <TextView
+        android:id="@+id/tvCanNangCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/oooh_baby"
+        android:text="Cân nặng (kg)"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvGioiTinhCapNhat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <RadioButton
+            android:id="@+id/rdNamCapNhat"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_textview_border"
+            android:fontFamily="@font/oooh_baby"
+            android:buttonTint="@drawable/radio_color_selector"
+            android:text="Nam"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textColorLink="#F44336"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/rdNuCapNhat"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_textview_border"
+            android:fontFamily="@font/oooh_baby"
+            android:buttonTint="@drawable/radio_color_selector"
+            android:text="Nữ"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textColorLink="#F44336"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/rdKhacCapNhat"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_textview_border"
+            android:fontFamily="@font/oooh_baby"
+            android:buttonTint="@drawable/radio_color_selector"
+            android:text="Khác"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textColorLink="#F44336"
+            android:textSize="24sp" />
+
+    </RadioGroup>
+
+
+
+    <TextView
+        android:id="@+id/tvGioiTinhCapNhat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/oooh_baby"
+        android:text="Giới tính"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNgaySinhCapNhat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
