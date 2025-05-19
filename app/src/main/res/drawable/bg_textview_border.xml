@@ -3,14 +3,14 @@
     android:shape="rectangle">
 
     <!-- Màu nền -->
-    <solid android:color="#FFFFFF" /> <!-- trắng, em có thể đổi -->
+    <solid android:color="#FFFFFF" />
 
     <!-- Viền -->
     <stroke
         android:width="2dp"
-        android:color="#000000" /> <!-- xanh lá, em có thể đổi -->
+        android:color="#2196F3" />
 
     <!-- Bo góc -->
-    <corners android:radius="12dp" /> <!-- góc bo cong -->
+    <corners android:radius="12dp" />
 
 </shape>

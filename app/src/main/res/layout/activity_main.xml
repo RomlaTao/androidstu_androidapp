@@ -30,7 +30,7 @@
         android:fontFamily="@font/oooh_baby"
         android:gravity="center"
         android:text="Quản lí dinh dưỡng"
-        android:textColor="#F44336"
+        android:textColor="#03A9F4"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,5 +1,5 @@
 package com.example.heath_android;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 import androidx.activity.EdgeToEdge;
@@ -10,9 +10,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class DangKi extends AppCompatActivity {
 
-    EditText edtTenDangNhap, edtEmail, edtMatKhau;
+    EditText edtHoVaTen, edtEmail, edtMatKhau;
     Button btnDangKi;
     DatabaseInformation db;
+    TextView tvDangNhapTaiKhoan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,28 +24,35 @@ public class DangKi extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        edtTenDangNhap = findViewById(R.id.edtTenDangNhap);
+        edtHoVaTen = findViewById(R.id.edtHoVaTen);
         edtEmail = findViewById(R.id.edtEmailDangKi);
         edtMatKhau = findViewById(R.id.edtMatKhauDangKi);
         btnDangKi = findViewById(R.id.btnDangKi2);
-
+        tvDangNhapTaiKhoan = findViewById(R.id.tvDangNhapTaiKhoan);
         db = new DatabaseInformation(this);
-        btnDangKi.setOnClickListener(v -> {
-            String username = edtTenDangNhap.getText().toString().trim();
-            String email = edtEmail.getText().toString().trim();
-            String password = edtMatKhau.getText().toString().trim();
 
-            if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+        btnDangKi.setOnClickListener(v -> {
+            String hoten = edtHoVaTen.getText().toString();
+            String email = edtEmail.getText().toString();
+            String matkhau = edtMatKhau.getText().toString();
+
+            if (hoten.isEmpty() || email.isEmpty() || matkhau.isEmpty()) {
+                Toast.makeText(DangKi.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             } else {
-                boolean inserted = db.insertUser(username, email, password);
-                if (inserted) {
-                    Toast.makeText(this, "Đăng kí thành công!", Toast.LENGTH_SHORT).show();
-                    finish(); // quay về màn hình đăng nhập
+                boolean check = db.insertUser(hoten, email, matkhau);
+                if (check) {
+                    Toast.makeText(DangKi.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DangKi.this, DangNhap.class);
+                    startActivity(intent);
+                    finish();
                 } else {
-                    Toast.makeText(this, "Đăng kí thất bại!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DangKi.this, "Email đã tồn tại", Toast.LENGTH_SHORT).show();
                 }
             }
+        });
+        tvDangNhapTaiKhoan.setOnClickListener(v -> {
+            Intent intent = new Intent(this, DangNhap.class);
+            startActivity(intent);
         });
     }
 }

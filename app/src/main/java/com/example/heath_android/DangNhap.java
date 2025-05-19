@@ -2,6 +2,7 @@ package com.example.heath_android;
 
 import android.os.Bundle;
 import android.database.Cursor;
+import android.view.View;
 import android.widget.*;
 import android.content.Intent;
 import androidx.activity.EdgeToEdge;
@@ -13,7 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class DangNhap extends AppCompatActivity {
 
     EditText edtEmail, edtMatKhau;
-    Button btnDangNhap, btnDangKi;
+    Button btnDangNhap;
+    TextView tvDangKiTaiKhoan, tvQuenMatKhau;
     DatabaseInformation db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,36 +30,38 @@ public class DangNhap extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmailDangNhap);
         edtMatKhau = findViewById(R.id.edtMatKhauDangNhap);
         btnDangNhap = findViewById(R.id.btnDangNhap);
-        btnDangKi = findViewById(R.id.btnDangKi1);
-
-        // Khởi tạo DB
+        tvDangKiTaiKhoan = findViewById(R.id.tvDangKiTaiKhoan);
+        tvQuenMatKhau = findViewById(R.id.tvQuenMatKhau);
         db = new DatabaseInformation(this);
 
-        // Sự kiện nút Đăng ký
-        btnDangKi.setOnClickListener(v -> {
-            Intent intent = new Intent(DangNhap.this, DangKi.class);
+        btnDangNhap.setOnClickListener(v -> {
+            String email = edtEmail.getText().toString();
+            String matkhau = edtMatKhau.getText().toString();
+
+            if (email.isEmpty() || matkhau.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            } else {
+                if (db.checkUser(email, matkhau)) {
+                    Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DangNhap.this, ThongTin.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(this, "Tài khoản không tồn tại. Vui lòng đăng ký.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        tvDangKiTaiKhoan.setOnClickListener(v -> {
+            Intent intent = new Intent(this, DangKi.class);
             startActivity(intent);
         });
-
-        // Sự kiện nút Đăng nhập
-        btnDangNhap.setOnClickListener(v -> {
-            String email = edtEmail.getText().toString().trim();
-            String password = edtMatKhau.getText().toString().trim();
-
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(DangNhap.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            boolean isUserValid = db.checkUser(email, password);
-
-            if (isUserValid) {
-                Toast.makeText(DangNhap.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(DangNhap.this, ThongTin.class);
+        /*tvQuenMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangNhap.this, DoiMatKhau.class);
                 startActivity(intent);
-            } else {
-                Toast.makeText(DangNhap.this, "Email hoặc mật khẩu không chính xác!", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 }
