@@ -11,15 +11,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.heath_android.viewmodel.SignUpAuthViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 import com.example.heath_android.repository.SignUpRepository;
 import com.example.heath_android.DatabaseInformation;
 import com.example.heath_android.R;
 import com.example.heath_android.model.SignUpRequest;
-import com.example.heath_android.model.SignUpResponse;
 
 public class DangKi extends AppCompatActivity {
 
@@ -44,7 +39,7 @@ public class DangKi extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtHoVaTen);
         edtMatKhau = findViewById(R.id.edtMatKhauDangKi);
         btnDangKi = findViewById(R.id.btnDangKi2);
-        btnQuayLaiDangNhap = findViewById(R.id.btnQuayLaiDangNhap);
+        btnQuayLaiDangNhap = findViewById(R.id.btnQuayLai);
         tvDangNhapTaiKhoan = findViewById(R.id.tvDangNhapTaiKhoan);
 
         db = new DatabaseInformation(this);

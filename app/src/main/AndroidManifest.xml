@@ -22,7 +22,7 @@
             android:name=".CapNhatThongTin"
             android:exported="false" />
         <activity
-            android:name=".DoiMatKhau"
+            android:name=".view.DoiMatKhau"
             android:exported="false" />
         <activity
             android:name=".ThongTin"
