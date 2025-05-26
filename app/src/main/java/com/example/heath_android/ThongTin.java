@@ -13,6 +13,8 @@ public class ThongTin extends AppCompatActivity {
 
     EditText edtNgaySinhNhap, edtChieuCaoNhap, edtCanNangNhap;
     Button btnLuuThongTin1;
+    ImageView btnQuayLaiDangNhap2;
+    AutoCompleteTextView spGioiTinhNhap, spTanSuatNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,9 @@ public class ThongTin extends AppCompatActivity {
         edtNgaySinhNhap = findViewById(R.id.edtNgaySinhNhap);
         edtChieuCaoNhap = findViewById(R.id.edtChieuCaoNhap);
         edtCanNangNhap = findViewById(R.id.edtCanNangNhap);
+        spGioiTinhNhap = findViewById(R.id.spGioiTinhNhap);
+        spTanSuatNhap = findViewById(R.id.spTanSuatNhap);
+        btnQuayLaiDangNhap2 = findViewById(R.id.btnQuayLaiDangNhap2);
 
         Button btnLuuThongTin1 = findViewById(R.id.btnLuuThongTin1);
         btnLuuThongTin1.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +39,7 @@ public class ThongTin extends AppCompatActivity {
                 kiemTraThongTin();
             }
         });
-        Spinner spGioiTinhNhap = findViewById(R.id.spGioiTinhNhap);
+        AutoCompleteTextView spGioiTinhNhap = findViewById(R.id.spGioiTinhNhap);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
                 this,
                 R.array.gender_array,
@@ -43,7 +48,7 @@ public class ThongTin extends AppCompatActivity {
         adapter1.setDropDownViewResource(R.layout.spinner_item);
         spGioiTinhNhap.setAdapter(adapter1);
 
-        Spinner spTanSuatNhap = findViewById(R.id.spTanSuatNhap);
+        AutoCompleteTextView spTanSuatNhap = findViewById(R.id.spTanSuatNhap);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
                 this,
                 R.array.type_array,
@@ -51,6 +56,12 @@ public class ThongTin extends AppCompatActivity {
         );
         adapter2.setDropDownViewResource(R.layout.spinner_item);
         spTanSuatNhap.setAdapter(adapter2);
+        btnQuayLaiDangNhap2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     private void kiemTraThongTin() {
         boolean hopLe = true;

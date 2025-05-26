@@ -9,9 +9,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.heath_android.view.DangNhap;
+
 public class MainActivity extends AppCompatActivity {
 
-    private static final int INTRO_DISPLAY_LENGTH = 5000;
+    private static final int INTRO_DISPLAY_LENGTH = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
