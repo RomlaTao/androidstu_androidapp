@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    tools:context=".SignupActivity">
+    tools:context=".ui.auth.SignupActivity">
 
     <!-- Back Arrow -->
     <ImageButton
@@ -73,7 +73,7 @@
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Ex: abc@example.com"
+        android:hint="Nhập Email"
         app:boxStrokeColor="#4C5EFF"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
@@ -108,7 +108,7 @@
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Ex. Saul Ramirez"
+        android:hint="Nhập tên của bạn"
         app:boxStrokeColor="#4C5EFF"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
@@ -142,7 +142,7 @@
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Nhập mật khẩu"
         app:passwordToggleEnabled="true"
         app:boxStrokeColor="#4C5EFF"
         app:boxCornerRadiusTopStart="12dp"

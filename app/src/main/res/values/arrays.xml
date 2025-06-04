@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Gender Items -->
+    <string-array name="gender_items">
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
+    
+    <!-- Activity Level Items -->
+    <string-array name="group_items">
+        <item>1.2</item>
+        <item>1.375</item>
+        <item>1.55</item>
+        <item>1.725</item>
+        <item>1.9</item>
+    </string-array>
+
+    <string-array name="chart_types">
+        <item>CaloriesINandOUT</item>
+        <item>PieChart</item>
+    </string-array>
+</resources> 
