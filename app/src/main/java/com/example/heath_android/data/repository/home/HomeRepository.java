@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.example.heath_android.data.local.DatabaseInformation;
-import com.example.heath_android.data.ApiService;
+import com.example.heath_android.data.api.ApiService;
 import com.example.heath_android.data.model.home.BMIBMRResponse;
 import com.example.heath_android.data.model.home.CaloriesResponse;
 import com.example.heath_android.data.model.home.CaloriesInWeekly;

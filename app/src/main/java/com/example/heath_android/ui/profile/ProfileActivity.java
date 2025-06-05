@@ -18,6 +18,7 @@ import com.example.heath_android.R;
 import com.example.heath_android.data.local.DatabaseInformation;
 import com.example.heath_android.data.model.profile.ProfileRequest;
 import com.example.heath_android.data.model.profile.ProfileResponse;
+import com.example.heath_android.ui.schedule.ScheduleActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -210,15 +211,9 @@ public class ProfileActivity extends AppCompatActivity {
             } else if (itemId == R.id.nav_profile) {
                 // Already on Profile, do nothing
                 return true;
-            } else if (itemId == R.id.nav_Workout_schedule) {
+            } else if (itemId == R.id.nav_schedule) {
                 // Navigate to Workout (when implemented)
-                Log.d(TAG, "Workout navigation not yet implemented");
-                Toast.makeText(this, "Workout feature coming soon!", Toast.LENGTH_SHORT).show();
-                return false;
-            } else if (itemId == R.id.nav_meal_schedule) {
-                // Navigate to Meal (when implemented)
-                Log.d(TAG, "Meal navigation not yet implemented");
-                Toast.makeText(this, "Meal feature coming soon!", Toast.LENGTH_SHORT).show();
+                navigateToSchedule();
                 return false;
             } else if (itemId == R.id.nav_logout) {
                 // Navigate to Settings (when implemented)
@@ -244,6 +239,12 @@ public class ProfileActivity extends AppCompatActivity {
         
         // Use finish() to go back to Home instead of creating new instance
         finish();
+    }
+
+    private void navigateToSchedule() {
+        Log.d(TAG, "Navigating to Schedule Activity");
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
     }
 
     private void loadUserInfo() {

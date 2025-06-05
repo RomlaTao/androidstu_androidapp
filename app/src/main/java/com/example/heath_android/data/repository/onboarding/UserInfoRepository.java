@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import com.example.heath_android.data.model.onboarding.UserInfoRequest;
 import com.example.heath_android.data.model.onboarding.UserInfoResponse;
-import com.example.heath_android.data.ApiService;
+import com.example.heath_android.data.api.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

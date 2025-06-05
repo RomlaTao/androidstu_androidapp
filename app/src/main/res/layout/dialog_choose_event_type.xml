@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvCreatePlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tạo kế hoạch tập luyện"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/tvCreateWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tạo bài tập"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/tvScheduleSession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lên lịch buổi tập"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true" />
+
+</LinearLayout>
+

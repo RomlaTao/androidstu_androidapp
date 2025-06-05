@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.heath_android.data.model.auth.SignupRequest;
 import com.example.heath_android.data.model.auth.SignupResponse;
 import com.example.heath_android.data.model.User;
-import com.example.heath_android.data.ApiService;
+import com.example.heath_android.data.api.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

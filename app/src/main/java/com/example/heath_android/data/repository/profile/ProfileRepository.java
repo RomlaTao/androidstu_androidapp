@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.heath_android.data.local.DatabaseInformation;
 import com.example.heath_android.data.model.profile.ProfileRequest;
 import com.example.heath_android.data.model.profile.ProfileResponse;
-import com.example.heath_android.data.ApiService;
+import com.example.heath_android.data.api.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

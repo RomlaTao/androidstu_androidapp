@@ -27,6 +27,7 @@ import com.example.heath_android.data.model.home.CaloriesOutWeekly;
 import com.example.heath_android.data.model.home.HomeResponse;
 import com.example.heath_android.data.model.home.TDEEResponse;
 import com.example.heath_android.ui.profile.ProfileActivity;
+import com.example.heath_android.ui.schedule.ScheduleActivity;
 import com.example.heath_android.util.StatCardView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -139,15 +140,9 @@ public class HomeActivity extends AppCompatActivity {
                 // Navigate to Profile
                 navigateToProfile();
                 return true;
-            } else if (itemId == R.id.nav_Workout_schedule) {
+            } else if (itemId == R.id.nav_schedule) {
                 // Navigate to Workout (when implemented)
-                Log.d(TAG, "Workout navigation not yet implemented");
-                Toast.makeText(this, "Workout feature coming soon!", Toast.LENGTH_SHORT).show();
-                return false;
-            } else if (itemId == R.id.nav_meal_schedule) {
-                // Navigate to Meal (when implemented)
-                Log.d(TAG, "Meal navigation not yet implemented");
-                Toast.makeText(this, "Meal feature coming soon!", Toast.LENGTH_SHORT).show();
+                navigateToSchedule();
                 return false;
             } else if (itemId == R.id.nav_logout) {
                 Log.d(TAG, "Logout");
@@ -166,7 +161,13 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
-    
+
+    private void navigateToSchedule() {
+        Log.d(TAG, "Navigating to Schedule Activity");
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
+    }
+
     private void findHealthStatViews() {
         try {
             bmiCardView = findViewById(R.id.stat_card_bmi);
