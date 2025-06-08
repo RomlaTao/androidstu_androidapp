@@ -130,7 +130,6 @@ public class ScheduleActivity extends AppCompatActivity {
     private void initializeNewUIComponents() {
         // User info components
         LinearLayout llUserInfo = findViewById(R.id.llUserInfo);
-        TextView tvUserInfo = findViewById(R.id.tvUserInfo);
         ImageView ivAuthStatus = findViewById(R.id.ivAuthStatus);
         
         // Selected schedule components
@@ -153,7 +152,7 @@ public class ScheduleActivity extends AppCompatActivity {
         setupNewClickListeners(btnClearSelection, btnPrevWeek, btnNextWeek, btnYearPicker);
         
         // Setup observers cho authentication và selection state
-        setupUIStateObservers(llUserInfo, tvUserInfo, ivAuthStatus, llSelectedSchedule, 
+        setupUIStateObservers(llUserInfo, ivAuthStatus, llSelectedSchedule,
                              tvSelectedScheduleName, tvSelectedSchedulePeriod, progressBar, llEmptyState);
     }
     
@@ -181,7 +180,7 @@ public class ScheduleActivity extends AppCompatActivity {
     /**
      * Setup observers cho UI state
      */
-    private void setupUIStateObservers(LinearLayout llUserInfo, TextView tvUserInfo, ImageView ivAuthStatus,
+    private void setupUIStateObservers(LinearLayout llUserInfo, ImageView ivAuthStatus,
                                      LinearLayout llSelectedSchedule, TextView tvSelectedScheduleName, 
                                      TextView tvSelectedSchedulePeriod, ProgressBar progressBar, 
                                      LinearLayout llEmptyState) {
@@ -191,7 +190,6 @@ public class ScheduleActivity extends AppCompatActivity {
             String[] userInfo = viewModel.getCurrentUserInfo();
             if (userInfo != null && userInfo.length >= 2) {
                 llUserInfo.setVisibility(View.VISIBLE);
-                tvUserInfo.setText("Chào " + (userInfo[2] != null ? userInfo[2] : userInfo[1]));
                 ivAuthStatus.setImageResource(android.R.drawable.presence_online);
             }
         } else {
@@ -721,7 +719,7 @@ public class ScheduleActivity extends AppCompatActivity {
         // Update hints for meal context (thực đơn)
         etMealName.setHint("Tên thực đơn");
         etMealType.setHint("Loại (BREAKFAST, LUNCH, DINNER, SNACK)");
-        etCalories.setVisibility(View.GONE); // Not used in new API
+        etCalories.setHint("Calories");
         
         new AlertDialog.Builder(this)
                 .setView(dialogView)
@@ -1307,32 +1305,37 @@ public class ScheduleActivity extends AppCompatActivity {
      * Dialog tạo scheduled meal (lên lịch bữa ăn cụ thể)
      */
     private void showCreateScheduledMealDialog() {
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_event, null);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_schedule_session, null);
         
-        EditText etTime = dialogView.findViewById(R.id.etTime);
-        EditText etName = dialogView.findViewById(R.id.etName);
-        EditText etDescription = dialogView.findViewById(R.id.etDescription);
-        EditText etCalories = dialogView.findViewById(R.id.etCalories);
-        EditText etType = dialogView.findViewById(R.id.etType);
+        EditText etMealId = dialogView.findViewById(R.id.etWorkoutId);
+        EditText etScheduleId = dialogView.findViewById(R.id.etPlanId);
+        EditText etScheduledDateTime = dialogView.findViewById(R.id.etStartTime);
+        EditText etNotes = dialogView.findViewById(R.id.etEndTime);
+        EditText etStatus = dialogView.findViewById(R.id.etStatus);
         
-        // Set hints cho scheduled meal context
-        etTime.setHint("Thời gian (yyyy-MM-ddTHH:mm:ss)");
-        etName.setHint("ID Thực đơn (meal ID)");
-        etDescription.setHint("ID Lịch ăn (schedule ID)");
-        etCalories.setHint("Ghi chú");
-        etType.setHint("Trạng thái (SCHEDULED/COMPLETED/SKIPPED)");
+        // Update hints for scheduled meal
+        etMealId.setHint("ID Thực đơn (meal ID)");
+        etScheduleId.setHint("ID Lịch ăn (schedule ID)");
+        etScheduledDateTime.setHint("Thời gian (yyyy-MM-ddTHH:mm:ss)");
+        etNotes.setHint("Ghi chú");
+        etStatus.setHint("Trạng thái (SCHEDULED/COMPLETED/SKIPPED)");
+        
+        // Pre-fill schedule ID if a meal schedule is selected
+        if (viewModel.getSelectedMealSchedule().getValue() != null) {
+            etScheduleId.setText(String.valueOf(viewModel.getSelectedMealSchedule().getValue().getId()));
+        }
         
         new AlertDialog.Builder(this)
                 .setView(dialogView)
                 .setTitle("Lên lịch bữa ăn")
-                .setPositiveButton("Thêm", (dialog, which) -> {
-                    String scheduledDateTime = etTime.getText().toString().trim();
-                    String mealId = etName.getText().toString().trim();
-                    String scheduleId = etDescription.getText().toString().trim();
-                    String notes = etCalories.getText().toString().trim();
-                    String status = etType.getText().toString().trim();
+                .setPositiveButton("Tạo", (dialog, which) -> {
+                    String mealId = etMealId.getText().toString().trim();
+                    String scheduleId = etScheduleId.getText().toString().trim();
+                    String scheduledDateTime = etScheduledDateTime.getText().toString().trim();
+                    String notes = etNotes.getText().toString().trim();
+                    String status = etStatus.getText().toString().trim();
                     
-                    if (!scheduledDateTime.isEmpty() && !mealId.isEmpty() && !scheduleId.isEmpty()) {
+                    if (!mealId.isEmpty() && !scheduleId.isEmpty() && !scheduledDateTime.isEmpty()) {
                         try {
                             Long mealIdLong = Long.parseLong(mealId);
                             Long scheduleIdLong = Long.parseLong(scheduleId);

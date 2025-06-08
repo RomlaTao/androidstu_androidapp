@@ -215,6 +215,10 @@ public class UserInfoSetupActivity extends AppCompatActivity {
               ", " + height + ", " + weight + ", " + selectedActivityLevel);
 
         UserInfoRequest request = new UserInfoRequest(
+            selectedBirthDate,
+            selectedGender,
+            Double.parseDouble(height),
+            Double.parseDouble(weight),
             selectedActivityLevel
         );
 

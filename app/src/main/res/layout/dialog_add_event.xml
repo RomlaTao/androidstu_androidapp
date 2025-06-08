@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@drawable/edit_text_background"
-        android:hint="Time (HH:mm)"
-        android:inputType="time"
+        android:hint="Time (yyyy-MM-ddTHH:mm:ss)"
+        android:inputType="textNoSuggestions"
+        android:digits="0123456789-:T"
         android:padding="12dp"
         android:textColor="@color/black" />
 
